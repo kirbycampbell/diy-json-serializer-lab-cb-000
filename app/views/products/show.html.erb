@@ -1,8 +1,8 @@
 <div class="productName"><%= @product.name %></div>
 <a href="#" class="js-next" data-id="<%=@product.id%>">Next...</a>
-<h1 class="productPrice"><%= @product.price %></h1>
-<p class="productInventory"><%= @product.inventory %></p>
-<p class="productDescription"><%= @product.description %></p>
+<h1 class="productPrice">Price: <%= @product.price %></h1>
+<p class="productInventory">In Stock: <%= @product.inventory %></p>
+<p class="productDescription">Description: <%= @product.description %></p>
 
 <script type="text/javascript" charset="utf-8">
 $(function () {
@@ -12,6 +12,9 @@ $(function () {
       $(".productName").text(data["product"]["name"]);
       $(".productPrice").text(data["product"]["price"]);
       $(".productInventory").text(data["product"]["inventory"]);
+      $(".productDescription").text(data["product"]["description"]);
+
+      $(".js-next").attr("data-id", data["id"]);
     });
   });
 });
